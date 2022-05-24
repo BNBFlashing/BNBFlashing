@@ -29,7 +29,7 @@ const theme = createTheme({
       fontSize: 32,
     },
     h5: {
-      color: "#feec6c",
+     color: "#ccaf0d",
       fontSize: 24,
       fontWeight: 500,
     },
@@ -40,6 +40,9 @@ const theme = createTheme({
         root: {
           boxShadow: "6px 6px 20px 6px #00000096",
           borderRadius: 20,
+          
+        
+          
         },
       },
     },
@@ -47,6 +50,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           padding: "12px 24px",
+          color: "#ccaf0d",
         },
       },
     },
@@ -58,12 +62,15 @@ const theme = createTheme({
           fontSize: "1.2rem",
           padding: "10px",
           minWidth: 138,
+          color: "#ccaf0d",
+          
         },
         contained: {
-          boxShadow: "6px 6px 20px 6px #00000096",
+          boxShadow: "6px 6px 20px 6px #ccaf0d",
+          
         },
         containedSecondary: {
-          color: "#17215E",
+          color: "#ccaf0d",
         },
       },
     },

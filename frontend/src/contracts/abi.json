@@ -7,22 +7,9 @@
 				"type": "address"
 			}
 		],
-		"name": "hireFlashers",
+		"name": "buyFlashes",
 		"outputs": [],
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "ref",
-				"type": "address"
-			}
-		],
-		"name": "rehireFlashers",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -50,23 +37,24 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "adr",
+				"name": "ref",
 				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "boosted",
-				"type": "uint256"
 			}
 		],
-		"name": "RewardsBoosted",
-		"type": "event"
+		"name": "ReCharge",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -77,7 +65,20 @@
 	},
 	{
 		"inputs": [],
-		"name": "sellFlash",
+		"name": "sellFlashes",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -95,7 +96,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "calculateBuy",
+		"name": "calculateFlashBuy",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -110,11 +111,49 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "flash",
+				"name": "eth",
 				"type": "uint256"
 			}
 		],
-		"name": "calculateSell",
+		"name": "calculateFlashesBuySimple",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "flashes",
+				"type": "uint256"
+			}
+		],
+		"name": "calculateFlashSell",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "adr",
+				"type": "address"
+			}
+		],
+		"name": "flashrewards",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -127,49 +166,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "getProjectBalance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getProjectStats",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "adr",
-				"type": "address"
-			}
-		],
-		"name": "getUserFlash",
+		"name": "getBalance",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -188,7 +185,7 @@
 				"type": "address"
 			}
 		],
-		"name": "getUserFlashingPower",
+		"name": "getFlashesSinceLastFlashing",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -207,7 +204,7 @@
 				"type": "address"
 			}
 		],
-		"name": "getUserNewFlash",
+		"name": "getMyFlashers",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -226,32 +223,8 @@
 				"type": "address"
 			}
 		],
-		"name": "getUserRewards",
+		"name": "getMyFlashes",
 		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "adr",
-				"type": "address"
-			}
-		],
-		"name": "getUserStats",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
 			{
 				"internalType": "uint256",
 				"name": "",

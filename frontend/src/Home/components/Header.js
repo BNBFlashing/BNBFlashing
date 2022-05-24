@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
 // import { Button } from "bootstrap";
-import logo from "../../assets/FullLogo.png";
+import shemed from "../../assets/shemed.png";
 import Connect from "./Connect";
 
 const Wrapper = styled("div")(({ theme }) => ({
@@ -20,7 +20,7 @@ const Wrapper = styled("div")(({ theme }) => ({
 export default function Header() {
   return (
     <Wrapper>
-      <img src={logo} alt="" width={"100%"} style={{ marginTop: -48 }} />
+      <img src={shemed} alt="" width={"10%"} style={{ marginTop: -10 }} />
       <Connect responsive={false} />
       <Typography variant="h6" marginTop={-3} style={{color: "#febf33"}}>
         The BNB Reward Pool with the 10% daily return and 13% referral rewards and lowest dev fee

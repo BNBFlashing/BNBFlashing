@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/background.jpg");
+  background-image: url("./assets/newshow1.png");
   background-color: transparent;
 }
 
@@ -19,11 +19,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 
 
 .home {
-   background-image: url("./assets/background.jpg"); 
+   background-image: url("./assets/newshow1.png"); 
 
    background-color: transparent; 
 /*  background:  #116530;*/
@@ -39,6 +40,7 @@ code {
   padding: 0 10px;
   margin: 0 auto;
   position: relative;
+
 }
 
 .home .header {
@@ -128,7 +130,7 @@ code {
 
 .home .header .walletWrapper:hover {
   background-color: white;
-  color: green;
+  color: rgb(218, 192, 0);
 }
 
 .home .logo {
@@ -253,16 +255,16 @@ code {
 .home .leftBox {
   padding: 25px;
   /* background: #FA89F6; */
-  background: #007e79;
+  background: #000000;
   border-radius: 20px;
 }
 
 .home .contractInfoCard {
-  background: linear-gradient(145deg, rgba(223, 170, 68, 1) 0%, rgba(126, 91, 54, 1) 100%);
+  background: linear-gradient(145deg, rgb(0, 0, 0) 0%, rgb(126, 103, 54) 100%);
 }
 
 .home .profitInfoCard {
-  background: linear-gradient(145deg, rgba(14, 93, 236, 1) 0%, rgba(95, 38, 252, 1) 100%);
+  background: linear-gradient(145deg, rgb(0, 0, 0) 0%, rgba(126, 103, 54, 1) 100%);
 }
 
 .home .dataRow {
@@ -276,7 +278,7 @@ code {
 }
 
 .home .dataRow .value {
-  /* font-weight: 600; */
+   font-weight: 600; 
   font-size: 15px;
   color: white;
 }
@@ -285,6 +287,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 .home .box {
@@ -297,7 +300,7 @@ code {
 }
 
 .home .mainContent .contractInfo {
-  background: #007e79;
+  background: #000000;
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -313,7 +316,7 @@ code {
 .home .referral {
   /* font-family: cursive; */
   width: 800px;
-  background: #007e79;
+  background: #000000;
   border-radius: 20px;
   padding: 20px;
   margin-top: 20px;
@@ -339,11 +342,11 @@ code {
 }
 
 .home .referral .refWrapper .copyButton {
-  border: 2px solid #0cbbfa;
+  border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 5px 20px;
-  color: #17215e;
+  color: #ccaf0d;
   /* font-family: "Inter",sans-serif; */
   font-size: 14px;
 }
@@ -362,7 +365,7 @@ a {
 .button1 {
   /* color: #731c00 !important; */
   /* box-shadow: none !important; */
-  border: 2px solid #0cbbfa !important;
+  border: 2px solid #ae9018 !important;
   border-radius: 5px !important;
   background: transparent !important;
   height: 47px;

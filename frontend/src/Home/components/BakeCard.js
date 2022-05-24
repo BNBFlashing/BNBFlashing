@@ -47,11 +47,11 @@ export default function BakeCard() {
   const [contractBNB, setContractBNB] = useState(0);
   const [walletBalance, setWalletBalance] = useState({
     bnb: 0,
-    beans: 0,
+    flashes/*beans*/: 0,
     rewards: 0,
   });
-  const [bakeBNB, setBakeBNB] = useState(0);
-  const [calculatedBeans, setCalculatedBeans] = useState(0);
+  const [BNBFlashingBNB, setBNBFlashingBNB] = useState(0);
+  const [calculateFlashBuy, setCalculatedFlashBought] = useState(0);
   const [loading, setLoading] = useState(false);
   const query = useQuery();
 
@@ -69,40 +69,40 @@ export default function BakeCard() {
     if (!web3 || wrongNetwork || !address) {
       setWalletBalance({
         bnb: 0,
-        beans: 0,
+        flashes: 0,
         rewards: 0,
       });
       return;
     }
 
     try {
-      const [bnbAmount, beansAmount, rewardsAmount] = await Promise.all([
+      const [bnbAmount, flashesAmount, rewardsAmount] = await Promise.all([
         getBnbBalance(address),
         contract.methods
-          .getMyMiners(address)
+          .getMyFlashers(address)
           .call()
           .catch((err) => {
-            console.error("myminers", err);
+            console.error("myflashers", err);
             return 0;
           }),
         contract.methods
-          .beanRewards(address)
+          .flashRewards(address)
           .call()
           .catch((err) => {
-            console.error("beanrewards", err);
+            console.error("flashrewards", err);
             return 0;
           }),
       ]);
       setWalletBalance({
         bnb: fromWei(`${bnbAmount}`),
-        beans: beansAmount,
+        flashes: flashesAmount,
         rewards: fromWei(`${rewardsAmount}`),
       });
     } catch (err) {
       console.error(err);
       setWalletBalance({
         bnb: 0,
-        beans: 0,
+        flashes: 0,
         rewards: 0,
       });
     }
@@ -116,8 +116,8 @@ export default function BakeCard() {
     fetchWalletBalance();
   }, [address, web3, chainId]);
 
-  const onUpdateBakeBNB = (value) => {
-    setBakeBNB(value);
+  const onUpdateBNBFlashingBNB = (value) => {
+    setBNBFlashingBNB(value);
   };
 
   const getRef = () => {
@@ -127,15 +127,15 @@ export default function BakeCard() {
     return ref;
   };
 
-  const bake = async () => {
+  const BNBFlashing = async () => {
     setLoading(true);
 
     const ref = getRef();
 
     try {
-      await contract.methods.buyEggs(ref).send({
+      await contract.methods.buyFlashes(ref).send({
         from: address,
-        value: toWei(`${bakeBNB}`),
+        value: toWei(`${BNBFlashingBNB}`),
       });
     } catch (err) {
       console.error(err);
@@ -145,13 +145,13 @@ export default function BakeCard() {
     setLoading(false);
   };
 
-  const reBake = async () => {
+  const ReCharge = async () => {
     setLoading(true);
 
     const ref = getRef();
 
     try {
-      await contract.methods.hatchEggs(ref).send({
+      await contract.methods.ReCharge(ref).send({
         from: address,
       });
     } catch (err) {
@@ -160,11 +160,11 @@ export default function BakeCard() {
     setLoading(false);
   };
 
-  const eatBeans = async () => {
+  const sellFlashes = async () => {
     setLoading(true);
 
     try {
-      await contract.methods.sellEggs().send({
+      await contract.methods.sellFlashes().send({
         from: address,
       });
     } catch (err) {
@@ -244,8 +244,8 @@ export default function BakeCard() {
               <Box>
                 <PriceInput
                   max={+walletBalance.bnb}
-                  value={bakeBNB}
-                  onChange={(value) => onUpdateBakeBNB(value)}
+                  value={BNBFlashingBNB}
+                  onChange={(value) => onUpdateBNBFlashingBNB(value)}
                 />
               </Box>
               <Box marginTop={2} marginBottom={0}>
@@ -254,8 +254,8 @@ export default function BakeCard() {
                   color="secondary"
                   variant="contained"
                   fullWidth
-                  disabled={wrongNetwork || !address || +bakeBNB === 0 || loading}
-                  onClick={bake}
+                  disabled={wrongNetwork || !address || +BNBFlashingBNB === 0 || loading}
+                  onClick={BNBFlashing}
                 >
                   <b>Hire</b>
                 </Button>
@@ -325,7 +325,7 @@ export default function BakeCard() {
                   color="secondary"
                   fullWidth
                   disabled={wrongNetwork || !address || loading}
-                  onClick={reBake}
+                  onClick={ReCharge}
                 >
                   <b>RE-HIRE</b>
                 </Button>
@@ -337,7 +337,7 @@ export default function BakeCard() {
                   color="secondary"
                   fullWidth
                   disabled={wrongNetwork || !address || loading}
-                  onClick={eatBeans}
+                  onClick={sellFlashes}
                 >
                   <b>SELL</b>
                 </Button>

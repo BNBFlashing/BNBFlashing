@@ -9,7 +9,7 @@ import ProfitInfoCard from "./components/ProfitInfo";
 import ReferralLink from "./components/ReferralLink";
 import { useAuthContext } from "../providers/AuthProvider";
 import Footer from "./components/Footer";
-import imgLogo from '../assets/logo.png';
+import imgshemed from '../assets/shemed.png';
 import nutritionImage from '../assets/nutrition.jpg';
 // import imgRat from '../assets/'
 import { config } from "../config";
@@ -54,7 +54,7 @@ export default function Home() {
             </div>
           </div>
           <div style={{display:"flex", justifyContent:"center"}}>
-            <img src={imgLogo} alt="logo" class="logo" data-xblocker="passed" style={{visibility: "visible"}}></img>
+            <img src={imgshemed} alt="shemed" class="shemed" data-xblocker="passed" style={{visibility: "visible"}}></img>
           </div>
 
           { <p class="slogan" style={{marginTop:"1rem"}}>The hottest BNB Reward Pool with 10% daily returns, 13% referral rewards and a 4.5% dev fee for marketing.
